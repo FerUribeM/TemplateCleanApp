@@ -1,22 +1,12 @@
 package com.ferbajoo.templetecleanapp.data.repositories
 
-import androidx.compose.foundation.pager.PageSize
-import arrow.core.Either
-import arrow.core.raise.result
 import com.ferbajoo.templetecleanapp.data.mapper.toGeneralError
 import com.ferbajoo.templetecleanapp.data.mapper.toNewsModel
 import com.ferbajoo.templetecleanapp.data.model.ArticleModel
-import com.ferbajoo.templetecleanapp.data.model.NewsModel
 import com.ferbajoo.templetecleanapp.data.remote.sources.abstraction.INewsDataSource
 import com.ferbajoo.templetecleanapp.domain.repository.INewsRepository
-import com.ferbajoo.templetecleanapp.domain.model.NetworkError
 import com.ferbajoo.templetecleanapp.utils.Constants.API_KEY
-import java.util.concurrent.Flow
 import javax.inject.Inject
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flow
 
 internal class NewsRepositoryImpl @Inject constructor(
