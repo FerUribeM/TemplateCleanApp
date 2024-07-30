@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+<<<<<<< Updated upstream
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
@@ -30,12 +31,22 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ferbajoo.templetecleanapp.presentation.news.NewsViewModel
 import com.ferbajoo.templetecleanapp.presentation.news.NewsViewState
 import com.ferbajoo.templetecleanapp.presentation.theme.TempleteCleanAppTheme
+=======
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.compose.rememberNavController
+import com.ferbajoo.templetecleanapp.presentation.components.MainBottomNavigation
+import com.ferbajoo.templetecleanapp.presentation.navigation.MainNavigation
+import com.ferbajoo.templetecleanapp.presentation.theme.TemplateCleanAppTheme
+>>>>>>> Stashed changes
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen()
+
         setContent {
             TempleteCleanAppTheme {
                 // A surface container using the 'background' color from the theme

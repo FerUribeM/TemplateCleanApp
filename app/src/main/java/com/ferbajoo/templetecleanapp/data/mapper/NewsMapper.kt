@@ -21,6 +21,7 @@ fun ArticlesResponse.toArticleModel(): ArticleModel {
         url = url,
         urlToImage = urlToImage,
         publishedAt = publishedAt,
-        content = content
+        content = content,
+        category = ""
     )
 }

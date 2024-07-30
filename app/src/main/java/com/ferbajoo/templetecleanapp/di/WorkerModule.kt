@@ -8,14 +8,18 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Provider
+import kotlinx.coroutines.CoroutineDispatcher
 
 @Module
 @InstallIn(SingletonComponent::class)
 internal object WorkerModule {
 
     @Provides
-    fun provideNewsDataSource(newsService: Provider<NewsService>): INewsDataSource {
-        return NewsDataSourceImpl(newsService)
+    fun provideNewsDataSource(
+        newsService: Provider<NewsService>,
+        @IoDispatcher ioDispatcher: CoroutineDispatcher
+    ): INewsDataSource {
+        return NewsDataSourceImpl(newsService, ioDispatcher)
     }
 
 }

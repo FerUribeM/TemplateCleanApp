@@ -4,7 +4,7 @@ import com.ferbajoo.templetecleanapp.domain.repository.INewsRepository
 import javax.inject.Inject
 
 internal class LoadNewsUseCase @Inject constructor(
-    private val newsRepositoryImpl: INewsRepository
+    private val newsRepository: INewsRepository
 ) {
-    suspend operator fun invoke() = newsRepositoryImpl.getNews()
+    suspend operator fun invoke() = newsRepository.getNews()
 }

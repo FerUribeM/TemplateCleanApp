@@ -74,6 +74,12 @@ dependencies {
     implementation(libs.arrow.core)
     implementation(libs.arrow.fx.coroutines)
     implementation(libs.gson)
+<<<<<<< Updated upstream
+=======
+    implementation(libs.splashscreen)
+    implementation(libs.lottie)
+
+>>>>>>> Stashed changes
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
