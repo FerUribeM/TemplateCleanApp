@@ -13,6 +13,5 @@ internal data class NewsViewState(
     companion object {
         val Idle = NewsViewState()
         val Loading = NewsViewState()
-        val ErrorState = NewsViewState()
     }
 }

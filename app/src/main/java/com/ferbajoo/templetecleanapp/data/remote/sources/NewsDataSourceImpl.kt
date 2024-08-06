@@ -7,6 +7,7 @@ import com.ferbajoo.templetecleanapp.utils.Constants
 import javax.inject.Inject
 import javax.inject.Provider
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.withContext
 
 internal class NewsDataSourceImpl @Inject constructor(

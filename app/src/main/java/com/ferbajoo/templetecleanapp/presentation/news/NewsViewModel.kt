@@ -3,7 +3,6 @@ package com.ferbajoo.templetecleanapp.presentation.news
 import androidx.lifecycle.viewModelScope
 import com.ferbajoo.templetecleanapp.data.model.NewsModel
 import com.ferbajoo.templetecleanapp.domain.usecase.LoadBreakingNewsUseCase
-import com.ferbajoo.templetecleanapp.domain.usecase.LoadNewsUseCase
 import com.ferbajoo.templetecleanapp.domain.usecase.LoadRecommendationNewsUseCase
 import com.ferbajoo.templetecleanapp.presentation.base.BaseViewModel
 import com.ferbajoo.templetecleanapp.presentation.base.handleErrors
@@ -14,7 +13,6 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 internal class NewsViewModel @Inject constructor(
-    private val loadNewsUseCase: LoadNewsUseCase,
     private val breakingNewsUseCase: LoadBreakingNewsUseCase,
     private val recommendationNewsUseCase: LoadRecommendationNewsUseCase
 ) : BaseViewModel<NewsViewState>() {

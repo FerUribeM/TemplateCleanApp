@@ -6,8 +6,8 @@ internal sealed class ErrorResponse {
         val errorResponse: String
     ) : ErrorResponse()
 
-    object TimeoutError : ErrorResponse()
-    object NetworkError : ErrorResponse()
-    object UndefinedError : ErrorResponse()
+    data object TimeoutError : ErrorResponse()
+    data object NetworkError : ErrorResponse()
+    data object UndefinedError : ErrorResponse()
 
 }
