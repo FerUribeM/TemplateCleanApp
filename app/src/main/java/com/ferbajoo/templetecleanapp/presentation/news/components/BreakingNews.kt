@@ -51,7 +51,7 @@ fun BreakingNewsHorizontalPager(articles: List<ArticleModel>) {
     ) { page ->
         Card {
             Box {
-                articles[page].urlToImage?.let { ImageBlackLayer(url = it) }
+                ImageBlackLayer(url = articles[page].urlToImage)
                 BreakingNewsCardContent(articles[page])
             }
         }
@@ -64,17 +64,14 @@ fun BreakingNewsHorizontalPager(articles: List<ArticleModel>) {
 @Composable
 fun BreakingNewsCardContent(articleModel: ArticleModel) {
     val context = LocalContext.current
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .clickable {
-                context.openLink(articleModel.url)
-            }
-            .padding(10.dp)
-    ) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .clickable {
+            context.openLink(articleModel.url)
+        }
+        .padding(10.dp)) {
         Spacer(
-            modifier = Modifier
-                .weight(1f)
+            modifier = Modifier.weight(1f)
         )
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(

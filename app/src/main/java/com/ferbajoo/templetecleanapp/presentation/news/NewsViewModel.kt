@@ -2,6 +2,7 @@ package com.ferbajoo.templetecleanapp.presentation.news
 
 import androidx.lifecycle.viewModelScope
 import com.ferbajoo.templetecleanapp.data.model.NewsModel
+import com.ferbajoo.templetecleanapp.data.remote.base.ErrorResponse
 import com.ferbajoo.templetecleanapp.domain.usecase.LoadBreakingNewsUseCase
 import com.ferbajoo.templetecleanapp.domain.usecase.LoadRecommendationNewsUseCase
 import com.ferbajoo.templetecleanapp.presentation.base.BaseViewModel
@@ -27,10 +28,15 @@ internal class NewsViewModel @Inject constructor(
         viewModelScope.launch {
             _viewData.value = NewsViewState.Loading
             breakingNewsUseCase.invoke()
-                .handleErrors { error ->
-                    _viewData.value = _viewData.value.copy(error = error)
-                }.collect { news ->
-                    loadRecommendationNews(news)
+                .collect { state ->
+                    state.error?.let {
+                        if (it is ErrorResponse.RequestError) {
+                            _viewData.value = NewsViewState.Idle
+                        }
+                    }
+                    state.success?.let {
+                        loadRecommendationNews(it)
+                    }
                 }
         }
     }
@@ -39,13 +45,16 @@ internal class NewsViewModel @Inject constructor(
         viewModelScope.launch {
             _viewData.value = NewsViewState.Loading
             recommendationNewsUseCase.invoke()
-                .handleErrors { error ->
-                    _viewData.value = _viewData.value.copy(error = error)
-                }.collect { recommendations ->
-                    _viewData.value = _viewData.value.copy(
-                        recommendationNews = recommendations,
-                        breakingNews = news
-                    )
+                .collect { state ->
+                    state.error?.let {
+                        _viewData.value = NewsViewState.Idle
+                    }
+                    state.success?.let { recommendations ->
+                        _viewData.value = _viewData.value.copy(
+                            recommendationNews = recommendations,
+                            breakingNews = news
+                        )
+                    }
                 }
         }
     }
