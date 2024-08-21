@@ -30,7 +30,7 @@ fun MainNavigation(navController: NavHostController) {
             HomeScreen(navController)
         }
         composable<Discover> {
-            DiscoverScreen()
+            DiscoverScreen(navController)
         }
         composable<Saved> {
             SavedScreen()

@@ -12,7 +12,6 @@ internal interface INewsDataSource {
         from: String,
         sort: String,
         pageSize: Int,
-        language: String,
         apiKey: String
     ): NewsModelResponse
 

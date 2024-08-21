@@ -29,7 +29,7 @@ internal interface NewsService {
     suspend fun loadNews(
         @Query(PARAM_QUERY) query: String,
         @Query(PARAM_FROM) from: String,
-        @Query(PARAM_PAGE) page: String,
+        @Query(PARAM_PAGE) page: Int,
         @Query(PARAM_LANGUAGE) language: String,
         @Query(PARAM_SORT_BY) sort: String,
         @Query(PARAM_API_KEY) apiKey: String

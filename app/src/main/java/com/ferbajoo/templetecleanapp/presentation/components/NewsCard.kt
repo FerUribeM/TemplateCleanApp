@@ -57,6 +57,7 @@ fun NewsCard(articleModel: ArticleModel) {
                 color = MaterialTheme.colorScheme.onTertiary,
                 maxLines = 2,
                 style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(end = 5.dp)
             )
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
